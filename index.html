@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APEPDCL Pathapatnam Substation (33/11 kV)</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="header-left">
+            <div>
+                <h1>Pending Meter Monitoring System</h1>
+                <p>APEPDCL Pathapatnam Substation (33/11 kV)</p>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <div class="logo-container">
+                <img src="logo.png"
+                    alt="APEPDCL Logo"
+                    class="logo">
+                <div class="company-name">
+                    Eastern Power Distribution Company of Andhra Pradesh Limited
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- DASHBOARD -->
+
+    <section class="dashboard">
+
+        <div class="dashboard-card">
+            <i class="fas fa-bolt"></i>
+            <h2 id="totalMeters">0</h2>
+            <p>Meter Sections</p>
+        </div>
+
+        <div class="dashboard-card">
+            <i class="fas fa-users"></i>
+            <h2 id="totalStaff">0</h2>
+            <p>Total Staff</p>
+        </div>
+
+        <div class="dashboard-card">
+            <i class="fas fa-tools"></i>
+            <h2 id="totalPending">0</h2>
+            <p>Total Pending Meters</p>
+        </div>
+
+    </section>
+
+    <!-- SEARCH OPTIONS -->
+
+    <section class="search-selection">
+
+        <div class="option-card" id="meterCard">
+            <i class="fas fa-gauge-high"></i>
+            <h3>Search by Meter</h3>
+            <p>View staff and pending meters under a meter section</p>
+        </div>
+
+        <div class="option-card" id="staffCard">
+            <i class="fas fa-user"></i>
+            <h3>Search by Staff</h3>
+            <p>View meter sections assigned to a staff member</p>
+        </div>
+
+    </section>
+
+    <!-- METER PORTAL -->
+
+    <section id="meterPortal" class="portal hidden">
+
+        <div class="portal-header">
+            <h2>
+                <i class="fas fa-gauge-high"></i>
+                Meter Portal
+            </h2>
+        </div>
+
+        <div class="search-box">
+
+    <label>Select Meter</label>
+
+    <select id="meterSearch">
+        <option value="">Select Meter</option>
+    </select>
+
+</div>
+
+<div class="search-box">
+
+    <label>Select Staff</label>
+
+    <select id="meterStaffSearch">
+        <option value="">Select Staff</option>
+    </select>
+
+</div>
+
+        <!-- BIG NUMBER -->
+
+        <div class="big-card">
+
+            <h1 id="meterPendingCount">0</h1>
+
+            <p>Pending Meters</p>
+
+        </div>
+
+        <!-- SELECTED RESULT -->
+
+        <div class="details-card">
+
+            <h3>Selected Details</h3>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Meter</th>
+                        <th>Staff</th>
+                        <th>Pending</th>
+                    </tr>
+                </thead>
+
+                <tbody id="meterSelectedBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- ALL STAFF TABLE -->
+
+        <div class="table-card">
+
+            <h3>All Staff Under Selected Meter</h3>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Staff Name</th>
+                        <th>Pending Meters</th>
+                    </tr>
+                </thead>
+
+                <tbody id="meterStaffTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- STAFF PORTAL -->
+
+    <section id="staffPortal" class="portal hidden">
+
+        <div class="portal-header">
+            <h2>
+                <i class="fas fa-user"></i>
+                Staff Portal
+            </h2>
+        </div>
+
+        <div class="search-box">
+
+    <label>Select Staff</label>
+
+    <select id="staffSearch">
+        <option value="">Select Staff</option>
+    </select>
+
+</div>
+
+<div class="search-box">
+
+    <label>Select Meter</label>
+
+    <select id="staffMeterSearch">
+        <option value="">Select Meter</option>
+    </select>
+
+</div>
+
+        <!-- BIG NUMBER -->
+
+        <div class="big-card">
+
+            <h1 id="staffPendingCount">0</h1>
+
+            <p>Pending Meters</p>
+
+        </div>
+
+        <!-- SELECTED RESULT -->
+
+        <div class="details-card">
+
+            <h3>Selected Details</h3>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Staff</th>
+                        <th>Meter</th>
+                        <th>Pending</th>
+                    </tr>
+                </thead>
+
+                <tbody id="staffSelectedBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- ALL METERS TABLE -->
+
+        <div class="table-card">
+
+            <h3>All Meters Under Selected Staff</h3>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Meter Name</th>
+                        <th>Pending Meters</th>
+                    </tr>
+                </thead>
+
+                <tbody id="staffMeterTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- ADMIN PANEL -->
+
+    <section id="adminPanel" class="admin-panel">
+
+        <div class="admin-card">
+
+            <h2>
+                <i class="fas fa-upload"></i>
+                Admin Data Upload
+            </h2>
+
+            <p>
+                Upload latest Excel file to update records.
+            </p>
+
+            <input
+                type="file"
+                id="excelFile"
+                accept=".xlsx,.xls">
+
+            <button id="uploadBtn">
+                Upload Data
+            </button>
+
+            <div id="uploadStatus">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 APEPDCL Pathapatnam Substation (33/11 kV)
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
